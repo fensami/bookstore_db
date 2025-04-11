@@ -1,0 +1,188 @@
+-- Create Database
+CREATE DATABASE bookstore_db;
+
+-- Create Book table
+CREATE Table books(
+    id SERIAL PRIMARY key,
+    title VARCHAR(255) NOT NULL,
+    author VARCHAR(255) NOT NULL,
+    price NUMERIC(10,2) CHECK (price >=0),
+    stock INTEGER check (stock >= 0),
+    published_year INTEGER
+
+)
+
+INSERT INTO books (title, author, price, stock,published_year) VALUES
+('The Real State Book', 'Alex Michaelides', 14.99, 0, 2019),
+('Where the Crawdads Sing', 'Delia Owens', 12.49, 15, 2018),
+('The Midnight Library', 'Matt Haig', 13.50, 7, 2020),
+('Educated', 'Tara Westover', 16.99, 12, 2018),
+('Becoming', 'Michelle Obama', 18.00, 9, 2018),
+('Atomic Habits', 'James Clear', 11.95, 20, 2018),
+('Daisy Jones & The Six', 'Taylor Jenkins Reid', 14.25, 8, 2019),
+('Circe', 'Madeline Miller', 13.75, 14, 2018),
+('The Book Thief', 'Markus Zusak', 10.99, 10, 2005),
+('Normal People', 'Sally Rooney', 12.50, 11, 2018),
+('The Alchemist', 'Paulo Coelho', 10.99, 25, 1988),
+('1984', 'George Orwell', 9.99, 30, 1949),
+('Brave New World', 'Aldous Huxley', 10.50, 18, 1932),
+('The Great Gatsby', 'F. Scott Fitzgerald', 8.99, 20, 1925),
+('To Kill a Mockingbird', 'Harper Lee', 11.00, 16, 1960),
+('Sapiens', 'Yuval Noah Harari', 17.25, 10, 2011),
+('Homo Deus', 'Yuval Noah Harari', 18.99, 9, 2015),
+('The Subtle Art of Not Giving a F*ck', 'Mark Manson', 12.00, 19, 2016),
+('The Power of Now', 'Eckhart Tolle', 11.75, 13, 1997),
+('Can’t Hurt Me', 'David Goggins', 15.50, 17, 2018),
+('Outliers', 'Malcolm Gladwell', 13.00, 10, 2008),
+('Blink', 'Malcolm Gladwell', 12.00, 7, 2005),
+('Talking to Strangers', 'Malcolm Gladwell', 14.50, 5, 2019),
+('Think Like a Monk', 'Jay Shetty', 13.99, 6, 2020),
+('Greenlights', 'Matthew McConaughey', 16.00, 8, 2020),
+('Rich Dad Poor Dad', 'Robert T. Kiyosaki', 10.50, 20, 1997),
+('The 7 Habits of Highly Effective People', 'Stephen R. Covey', 14.75, 12, 1989),
+('Start With Why', 'Simon Sinek', 13.50, 15, 2009),
+('Leaders Eat Last', 'Simon Sinek', 12.99, 14, 2014),
+('Deep Work', 'Cal Newport', 13.25, 11, 2016),
+('Digital Minimalism', 'Cal Newport', 14.00, 9, 2019),
+('The Four Agreements', 'Don Miguel Ruiz', 9.99, 13, 1997),
+('Man’s Search for Meaning', 'Viktor E. Frankl', 10.99, 16, 1946),
+('Meditations', 'Marcus Aurelius', 11.50, 10, 180),
+('The War of Art', 'Steven Pressfield', 12.25, 8, 2002),
+('Ego is the Enemy', 'Ryan Holiday', 13.00, 7, 2016),
+('The Obstacle is the Way', 'Ryan Holiday', 12.50, 10, 2014),
+('Stillness is the Key', 'Ryan Holiday', 14.00, 9, 2019),
+('The Daily Stoic', 'Ryan Holiday', 15.75, 12, 2016),
+('How to Win Friends and Influence People', 'Dale Carnegie', 10.50, 18, 1936),
+('The Psychology of Money', 'Morgan Housel', 13.99, 20, 2020),
+('Principles', 'Ray Dalio', 17.99, 11, 2017),
+('The Intelligent Investor', 'Benjamin Graham', 18.50, 10, 1949),
+('Zero to One', 'Peter Thiel', 13.25, 14, 2014),
+('Hooked', 'Nir Eyal', 12.00, 9, 2014),
+('The Lean Startup', 'Eric Ries', 14.50, 13, 2011),
+('Crushing It!', 'Gary Vaynerchuk', 15.25, 8, 2018),
+('The $100 Startup', 'Chris Guillebeau', 11.75, 10, 2012),
+('Steal Like an Artist', 'Austin Kleon', 9.99, 15, 2012),
+('Show Your Work!', 'Austin Kleon', 9.99, 14, 2014);
+
+SELECT * from books;
+
+
+-- create Customers Table
+CREATE TABLE customers(
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    email VARCHAR(255) UNIQUE NOT NULL,
+    joined_date DATE DEFAULT CURRENT_DATE
+)
+
+-- create some customers
+INSERT INTO customers (name, email) VALUES
+('Alice Johnson', 'alice.johnson@example.com'),
+('Bob Smith', 'bob.smith@example.com'),
+('Carol White', 'carol.white@example.com'),
+('David Brown', 'david.brown@example.com'),
+('Eve Davis', 'eve.davis@example.com'),
+('Frank Moore', 'frank.moore@example.com'),
+('Grace Taylor', 'grace.taylor@example.com'),
+('Hank Anderson', 'hank.anderson@example.com'),
+('Ivy Thomas', 'ivy.thomas@example.com'),
+('Jack Wilson', 'jack.wilson@example.com'),
+('Karen Martinez', 'karen.martinez@example.com'),
+('Leo Garcia', 'leo.garcia@example.com'),
+('Mia Clark', 'mia.clark@example.com'),
+('Nick Rodriguez', 'nick.rodriguez@example.com'),
+('Olivia Lewis', 'olivia.lewis@example.com'),
+('Paul Lee', 'paul.lee@example.com'),
+('Queen Hall', 'queen.hall@example.com'),
+('Ryan Allen', 'ryan.allen@example.com'),
+('Sophie Young', 'sophie.young@example.com'),
+('Tom Hernandez', 'tom.hernandez@example.com'),
+('Uma King', 'uma.king@example.com'),
+('Victor Wright', 'victor.wright@example.com'),
+('Wendy Lopez', 'wendy.lopez@example.com'),
+('Xander Hill', 'xander.hill@example.com'),
+('Yara Scott', 'yara.scott@example.com'),
+('Zane Green', 'zane.green@example.com'),
+('Amber Adams', 'amber.adams@example.com'),
+('Brad Nelson', 'brad.nelson@example.com'),
+('Chloe Baker', 'chloe.baker@example.com'),
+('Derek Carter', 'derek.carter@example.com'),
+('Ella Mitchell', 'ella.mitchell@example.com'),
+('Finn Perez', 'finn.perez@example.com'),
+('Gina Roberts', 'gina.roberts@example.com'),
+('Henry Turner', 'henry.turner@example.com'),
+('Isla Phillips', 'isla.phillips@example.com'),
+('Jake Campbell', 'jake.campbell@example.com'),
+('Kylie Parker', 'kylie.parker@example.com'),
+('Liam Evans', 'liam.evans@example.com'),
+('Molly Edwards', 'molly.edwards@example.com'),
+('Noah Collins', 'noah.collins@example.com'),
+('Olive Stewart', 'olive.stewart@example.com'),
+('Peter Sanchez', 'peter.sanchez@example.com'),
+('Quinn Morris', 'quinn.morris@example.com'),
+('Ruby Rogers', 'ruby.rogers@example.com'),
+('Sam Reed', 'sam.reed@example.com'),
+('Tina Cook', 'tina.cook@example.com'),
+('Umar Morgan', 'umar.morgan@example.com'),
+('Violet Bell', 'violet.bell@example.com'),
+('Walter Murphy', 'walter.murphy@example.com'),
+('Zoe Bailey', 'zoe.bailey@example.com');
+
+
+SELECT * from customers;
+-- create order table
+CREATE table orders(
+    id SERIAL PRIMARY KEY,
+    customer_id INTEGER REFERENCES customers(id) ON delete CASCADE,
+    book_id INTEGER REFERENCES books(id),
+    quantity INTEGER CHECK (quantity > 0),
+    order_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+
+SELECT * from orders;
+-- Create Orders
+INSERT INTO orders (customer_id, book_id, quantity)
+VALUES (5, 5, 5);
+
+-- Find books when stock is 0
+SELECT * FROM books
+WHERE stock = 0;
+
+-- Most expensive book in the store
+SELECT * FROM books
+ORDER BY price DESC
+LIMIT 1;
+
+
+SELECT customer_id, COUNT(*) AS total_orders
+FROM orders
+GROUP BY customer_id;
+
+-- Total Revenue  
+SELECT SUM(price * stock) AS total_revenue
+FROM books;
+
+
+
+SELECT * from orders;
+--  List all customers who have placed more than one order.
+SELECT customer_id, count(id) as order_id from orders 
+    GROUP BY customer_id
+    HAVING count(id) > 1;
+
+
+
+-- This Query using carefully
+DELETE FROM customers
+WHERE NOT EXISTS (
+    SELECT 1
+    FROM orders
+    WHERE orders.customer_id = customers.id
+);
+
+-- This code using carefully
+UPDATE books
+SET price = price * 1.10
+WHERE published_year < 2000;
+SELECT * from books;
