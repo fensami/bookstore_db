@@ -12,6 +12,7 @@ CREATE Table books(
 
 )
 
+-- Create 50 demo data  
 INSERT INTO books (title, author, price, stock,published_year) VALUES
 ('The Real State Book', 'Alex Michaelides', 14.99, 0, 2019),
 ('Where the Crawdads Sing', 'Delia Owens', 12.49, 15, 2018),
@@ -154,7 +155,7 @@ SELECT * FROM books
 ORDER BY price DESC
 LIMIT 1;
 
-
+-- Customer total orders count
 SELECT customer_id, COUNT(*) AS total_orders
 FROM orders
 GROUP BY customer_id;
